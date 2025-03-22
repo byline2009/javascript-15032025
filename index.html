@@ -3,12 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Hello JavaScript</title>
     <script src="./main.js"></script>
+    <style>
+      body {font-family:courier}
+      body {background-color:rgb(212, 237, 240)}
+      h1   {color:rgb(229, 79, 129)}
+      textarea {
+          width: 400px;
+          height: 150px; 
+      }
+      button {
+        background-color:rgb(5, 20, 120);
+        color: #f6f6f6;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
-    <h1>Hello Van Homework</h1>
-    <h2>Click to say hello</h2>
-    <button onclick="sayHello()">Click me</button>
-  </body>
+    <h1>WELCOME TO MY PAGE</h1>
+    <h2>Format your paragraph</h2>
+    <textarea id="inputText" placeholder="Input your paragraph..."></textarea><br>
+    <button onclick="formatParagraph()">FORMAT</button>
+    <p style="background-color:tomato" id="error"></p>
+    <p style="background-color:rgb(84, 248, 182)" id="outputFormatText"></p>
+    <script src="main.js"></script>
+    </body>
 </html>
