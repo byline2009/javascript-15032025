@@ -1,4 +1,4 @@
-console.warn("Hello van anh");
+console.warn("Hello kiet");
 let text = "Hello, JavaScript!";
 console.log(Date()); // "HELLO, JAVASCRIPT!"
 function sayHello() {
