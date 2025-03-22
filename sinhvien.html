@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Quản lý Sinh viên</title>
+  <style>
+    body { font-family: Arial; margin: 20px; }
+    input, button { padding: 6px; margin: 5px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background-color: #f2f2f2; }
+    .error { color: red; }
+  </style>
+  <script src="scripts.js"></script>
+</head>
+<body>
+
+  <h2>📚 Quản lý Danh sách Sinh viên</h2>
+
+  <input type="text" id="name" placeholder="Họ tên">
+  <input type="number" id="age" placeholder="Tuổi">
+  <input type="text" id="studentId" placeholder="MSSV (VD: SV001)">
+  <input type="email" id="email" placeholder="Email">
+  <button onclick="addStudent()">Thêm sinh viên</button>
+  <span class="error" id="error"></span>
+
+  <br><br>
+  🔍 Tìm kiếm theo tên: 
+  <input type="text" id="search" oninput="searchStudents()" placeholder="Nhập tên...">
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Họ tên</th>
+        <th>Tuổi</th>
+        <th>MSSV</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody id="studentList"></tbody>
+  </table>
+
+  
+  <script src="script.js"></script>
+</body>
+</html>
