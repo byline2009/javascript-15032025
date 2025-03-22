@@ -15,7 +15,7 @@ console.log("Chia du: " + g);
 console.log("Luy thua: " + a ** b);
 let h = a++;
 console.log("Tang mot don vi: " + h);
-let i = b++;
+let i = --b;
 console.log("Giam mot don vi: " + i);
 
 //Assignment Operators (Toan tu gan)
