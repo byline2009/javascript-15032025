@@ -1,22 +1,25 @@
 function formatParagraph(){
-  let input = document.getElementById("inputText").value.trim();
+  let value = document.getElementById("inputText").value.trim();
 
   //Check if empty input 
-  if (input === "") {
+  if (value === "") {
     document.getElementById("error").innerText = "Input something!";
     return;
   }
-
-  let paragraph = input.split(".");
+  //Split paragraph
+  let paragraph = value.split(".");
   console.log(`Paragraph after split: ${paragraph}`);
 
+  //Capitalize first letter
   for (let i = 0; i < paragraph.length; i++) {
     paragraph[i] = paragraph[i].substring(0, 1).toUpperCase() + paragraph[i].substring(1).toLowerCase();
   }
   console.log(`Paragraph after formatting: ${paragraph}`);
 
+  //
   let formatParagraph = paragraph.join(". ").trim() + ".";
-  
+
+  //Show result
   document.getElementById("outputFormatText").innerText = formatParagraph;
 }
 
