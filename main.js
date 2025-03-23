@@ -33,6 +33,7 @@
 
 
 
+<<<<<<< Updated upstream
 // ktra chan le
 //nhap so
 let number = parseInt(prompt("Nhap so nguyen:"));
@@ -43,4 +44,25 @@ let result = (number % 2 === 0) ? "số chẵn" : "số lẻ";
 // view
 console.log(`${number} là ${result}`);
 
+
+
+// // ktra chan le
+// //nhap so
+// let number = parseInt(prompt("Nhap so nguyen:"));
+
+// //dau ? dang if else
+// let result = (number % 2 === 0) ? "số chẵn" : "số lẻ";
+
+// // view
+// console.log(`${number} là ${result}`);
+
+
+//Buoi 4
+//ham return 
+function calulateArea(width, height){
+  return width * height;
+
+}
+
+console.log(calulateArea(5,10))
 
