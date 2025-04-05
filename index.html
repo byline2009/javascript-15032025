@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hello JavaScript</title>
     <script src="./main.js"></script>
-    <style>
+    <style src="style.css">
       body {font-family:courier}
       body {background-color:rgb(212, 237, 240)}
       h1   {color:rgb(229, 79, 129)}
@@ -21,14 +21,16 @@
     </style>
   </head>
   <body>
-    <h1>WELCOME TO MY PAGE</h1>
-    <h2>Format your paragraph</h2>
-    <textarea id="inputText" placeholder="Input your paragraph..."></textarea><br>
-    <button onclick="formatParagraph()">FORMAT</button>
-    <button onclick="countWords()">COUNT</button>
-    <p style="background-color:tomato" id="error"></p>
-    <p style="background-color:rgb(84, 248, 182)" id="outputFormatText"></p>
-    <p style="background-color:rgb(148, 177, 248)" id="count"></p>
-    <script src="main.js"></script>
+    <div class="main">
+      <h1>WELCOME TO MY PAGE</h1>
+      <h2>Format your paragraph</h2>
+      <textarea id="inputText" placeholder="Input your paragraph..."></textarea><br>
+      <button onclick="formatParagraph()">FORMAT</button>
+      <button onclick="countWords()">COUNT</button>
+      <p style="background-color:tomato" id="error"></p>
+      <p style="background-color:rgb(84, 248, 182)" id="outputFormatText"></p>
+      <p style="background-color:rgb(148, 177, 248)" id="count"></p>
+      <script src="main.js"></script>
+    </div>
     </body>
 </html>

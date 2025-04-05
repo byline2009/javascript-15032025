@@ -43,7 +43,6 @@ function countWords(paragraph, word){
   let para = "// lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, lorem ipsum.";
   //let value = document.getElementById("inputText").value.trim().toUpperCase();
 
-  //Remove spaces and punctuation
   let value = para.trim().toUpperCase();
   let valueAfterRemovePunctuation = value.replace(/[^\w\s]/g, '');
 
