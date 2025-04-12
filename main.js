@@ -1,54 +1,68 @@
-document.addEventListener("DOMContentLoaded", function () {
-  document
-    .getElementById("form")
-    .addEventListener("submit", async function (event) {
-      event.preventDefault(); // Ngừng hành vi mặc định (submit form)
-      console.log("Form submission prevented");
-      const fullname = document.getElementById("fullname");
-      const email = document.getElementById("email");
-      const password = document.getElementById("password");
-      console.log("info", fullname.value, email.value, password.value);
-
-      const result = await fetch(
-        "https://ca5a80caf735f690b673.free.beeceptor.com/api/users?id=a63b0a6ff1143fcd54de",
-        {
-          method: "GET",
+function Validator(options) {
+  document.addEventListener("DOMContentLoaded", function () {
+    const formElement = document.querySelector(options.form);
+    formElement.onsubmit = function (e) {
+      e.preventDefault();
+    };
+    const selectorRules = {};
+    options.rules.forEach((rule) => {
+      const element = document.querySelector(rule.selector);
+      if (element) {
+        // console.log("element", element);
+        if (Array.isArray(selectorRules[rule.selector])) {
+          selectorRules[rule.selector] = selectorRules[rule.selector].push(
+            rule.test
+          );
+        } else {
+          selectorRules[rule.selector] = [rule.test];
         }
-      );
-
-      const data = await result.json();
-      console.log("data", data);
-
-      fetch(
-        "https://ca5a80caf735f690b673.free.beeceptor.com/api/users?id=a63b0a6ff1143fcd54de",
-        {
-          method: "GET",
-        }
-      )
-        .then(async (result) => await result.json())
-        .then((data) => {
-          console.log("data", data);
-        });
-
-      fetch("https://ca5a80caf735f690b673.free.beeceptor.com/api/users", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          fullname: fullname.value,
-          email: email.value,
-          password: password.value,
-        }),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log("Success:", data);
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
+      }
+      var inputElements = formElement.querySelectorAll(rule.selector);
+      Array.from(inputElements).forEach(function (inputElement) {
+        // Xử lý trường hợp blur khỏi input
+        inputElement.onblur = function () {
+          console.log("onblur", inputElement.value);
+        };
+      });
     });
 
-  // Mã của bạn ở đây
-});
+    // console.log("selectorRules", selectorRules);
+  });
+}
+Validator.isRequired = function (selector, message) {
+  return {
+    selector: selector,
+    test: (value) => {
+      if (value && value.length > 0) {
+        return undefined;
+      } else {
+        return message;
+      }
+    },
+  };
+};
+Validator.minLength = function (selector, message) {
+  return {
+    selector: selector,
+    test: (value) => {
+      if (value && value.length > 8) {
+        return undefined;
+      } else {
+        return message;
+      }
+    },
+  };
+};
+Validator.isEmail = function (selector, message) {
+  return {
+    selector: selector,
+    test: (value) => {
+      const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (regex.test(email)) {
+        return undefined;
+      } else {
+        return message;
+      }
+    },
+  };
+};

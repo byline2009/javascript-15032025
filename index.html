@@ -6,10 +6,22 @@
     <title>Hello class javascript</title>
     <link rel="stylesheet" href="./css/style.css" />
     <script src="./main.js"></script>
+    <script>
+      Validator({
+        form: "#form-register",
+        rules: [
+          Validator.isRequired("#fullname", "Hãy nhập thông tin tên của bạn"),
+          Validator.isRequired("#email", "Hãy nhập email của bạn"),
+          Validator.isRequired("#password", "Hãy nhập password của bạn"),
+          Validator.isEmail("#email", "Định dạng email không chính xác"),
+          Validator.minLength("#password", "Chiều dài mật khẩu không đủ"),
+        ],
+      });
+    </script>
   </head>
   <body>
     <div class="main">
-      <form class="form" action="" method="POST" id="form">
+      <form class="form" action="" method="POST" id="form-register">
         <h4 class="heading">Form đăng ký học B4U</h4>
         <p class="desc">Học tập chăm chỉ cùng B4U</p>
         <div class="form-group">
@@ -24,7 +36,7 @@
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="text" name="email" class="form-control" id="email" />
+          <input type="email" name="email" class="form-control" id="email" />
           <span class="form-message"></span>
         </div>
         <div class="form-group">
