@@ -1,66 +1,87 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
-  font-family: "Segoe UI", sans-serif;
-  margin: 30px;
-  background-color: #f9f9f9;
+  padding: 30px;
+  background-color: #ffffff;
   color: #333;
 }
 
 h1 {
-  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #007bff;
 }
 
-form {
+form#studentForm {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
 }
-form input, form button {
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
+form#studentForm input, form#studentForm button {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
 }
-form button {
-  background-color: #3498db;
-  color: white;
-  cursor: pointer;
+form#studentForm input {
+  width: 200px;
+}
+form#studentForm button {
+  background-color: #007bff;
+  color: #fff;
   border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
-form button:hover {
-  background-color: #2980b9;
+form#studentForm button:hover {
+  background-color: #0062cc;
+}
+
+.error, .success {
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
 .error {
-  color: red;
-  margin-top: 10px;
+  color: #dc3545;
 }
 
-.search-container {
-  margin: 20px 0;
+.success {
+  color: #28a745;
+}
+
+div input#search {
+  padding: 8px;
+  width: 250px;
+  font-size: 1rem;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  margin-top: 5px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  background: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 15px;
 }
 table th, table td {
-  padding: 10px;
-  border: 1px solid #ddd;
-  text-align: left;
+  border: 1px solid #dee2e6;
+  padding: 12px;
+  text-align: center;
 }
-table th {
-  background-color: #ecf0f1;
+table thead {
+  background-color: #f8f9fa;
+  font-weight: bold;
 }
-table button {
-  background: none;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-  color: red;
-}
-table button:hover {
-  transform: scale(1.1);
+table tr:nth-child(even) {
+  background-color: #f1f1f1;
 }/*# sourceMappingURL=style.css.map */

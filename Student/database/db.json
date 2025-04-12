@@ -1,0 +1,14 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "Nguyễn Văn Anh",
+      "age": 25,
+      "studentId": "SV001",
+      "email": "vana@gmail.com"
+    },
+    {
+      "id": "e682"
+    }
+  ]
+}

@@ -1,73 +1,110 @@
+// Biến màu sắc
+$primary-color: #007bff;
+$success-color: #28a745;
+$error-color: #dc3545;
+$light-gray: #f8f9fa;
+$border-color: #dee2e6;
+$text-color: #333;
+$font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+// Reset nhẹ
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: $font-family;
+}
+
 body {
-  font-family: 'Segoe UI', sans-serif;
-  margin: 30px;
-  background-color: #f9f9f9;
-  color: #333;
+  padding: 30px;
+  background-color: #ffffff;
+  color: $text-color;
 }
 
 h1 {
-  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: $primary-color;
 }
 
-form {
+// Form thêm sinh viên
+form#studentForm {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
 
   input, button {
-    padding: 8px 12px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 14px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+  }
+
+  input {
+    width: 200px;
   }
 
   button {
-    background-color: #3498db;
-    color: white;
-    cursor: pointer;
+    background-color: $primary-color;
+    color: #fff;
     border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 
     &:hover {
-      background-color: #2980b9;
+      background-color: darken($primary-color, 10%);
     }
   }
+}
+
+// Thông báo
+.error, .success {
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
 .error {
-  color: red;
-  margin-top: 10px;
+  color: $error-color;
 }
 
-.search-container {
-  margin: 20px 0;
+.success {
+  color: $success-color;
 }
 
+// Ô tìm kiếm
+div {
+  input#search {
+    padding: 8px;
+    width: 250px;
+    font-size: 1rem;
+    border: 1px solid $border-color;
+    border-radius: 6px;
+    margin-top: 5px;
+  }
+}
+
+// Bảng danh sách sinh viên
 table {
   width: 100%;
   border-collapse: collapse;
-  background: white;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin-top: 15px;
 
   th, td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: left;
+    border: 1px solid $border-color;
+    padding: 12px;
+    text-align: center;
   }
 
-  th {
-    background-color: #ecf0f1;
+  thead {
+    background-color: $light-gray;
+    font-weight: bold;
   }
 
-  button {
-    background: none;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    color: red;
-
-    &:hover {
-      transform: scale(1.1);
-    }
+  tr:nth-child(even) {
+    background-color: #f1f1f1;
   }
 }

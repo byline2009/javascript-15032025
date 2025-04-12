@@ -1,6 +1,27 @@
-let students = JSON.parse(localStorage.getItem("students")) || [];
+let students = [];
+document.addEventListener("DOMContentLoaded", function () {
+  // Lấy danh sách
+fetch('https://ca29ebf4933323a55a80.free.beeceptor.com/api/users/')
+.then(res => res.json())
+.then(data => {
+  console.log('getdata from server', data)
+  students = data;
+  students
+    .forEach((sv, index) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${index + 1}</td>
+        <td>${sv.name}</td>
+        <td>${sv.age}</td>
+        <td>${sv.studentId}</td>
+        <td>${sv.email}</td>
+        <td><button onclick="deleteStudent(${index})">❌</button></td>
+      `;
+      studentList.appendChild(row);
+    });
 
-const form = document.getElementById("studentForm");
+})
+  const form = document.getElementById("studentForm");
 const nameInput = document.getElementById("name");
 const ageInput = document.getElementById("age");
 const idInput = document.getElementById("studentId");
@@ -34,8 +55,16 @@ function addStudent() {
   if (!emailRegex.test(email)) {
     return showError("⚠️ Email không hợp lệ.");
   }
-  students.push({ name, age, studentId, email });
+
+  const newStudent = { name, age, studentId, email };
+
+  // 👉 Lưu vào localStorage
+  students.push(newStudent);
   localStorage.setItem("students", JSON.stringify(students));
+
+  // 👉 Gửi API
+  postStudentToAPI(newStudent);
+
   clearForm();
   renderStudents();
   showSuccess("✅ Đã thêm sinh viên thành công!");
@@ -92,4 +121,23 @@ function showError(message) {
   setTimeout(() => (error.textContent = ""), 3000);
 }
 
+
+
+
+// Gọi API để lưu sinh viên
+function postStudentToAPI(student) {
+  fetch('https://ca29ebf4933323a55a80.free.beeceptor.com/api/users/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(student)
+  })
+  .then(res => res.json())
+  .then(data => console.log("✅ Gửi API thành công:", data));
+}
+
+
+
 renderStudents();
+})
+
+
