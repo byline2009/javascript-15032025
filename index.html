@@ -11,10 +11,15 @@
         form: "#form-register",
         rules: [
           Validator.isRequired("#fullname", "Hãy nhập thông tin tên của bạn"),
+          Validator.minLength("#fullname", "Chiều dài tên không đủ"),
           Validator.isRequired("#email", "Hãy nhập email của bạn"),
           Validator.isRequired("#password", "Hãy nhập password của bạn"),
           Validator.isEmail("#email", "Định dạng email không chính xác"),
           Validator.minLength("#password", "Chiều dài mật khẩu không đủ"),
+          Validator.isConfirmPassword(
+            "#confirm-password",
+            "Password không giống nhau"
+          ),
         ],
       });
     </script>
@@ -35,12 +40,12 @@
           <span class="form-message"></span>
         </div>
         <div class="form-group">
-          <label for="email">Email</label>
+          <label for="email">Email:</label>
           <input type="email" name="email" class="form-control" id="email" />
           <span class="form-message"></span>
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
+          <label for="password">Password:</label>
           <input
             type="password"
             name="password"
@@ -49,8 +54,31 @@
           />
           <span class="form-message"></span>
         </div>
+
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password:</label>
+          <input
+            type="password"
+            name="confirm-password"
+            class="form-control"
+            id="confirm-password"
+          />
+          <span class="form-message"></span>
+        </div>
         <button class="form-submit" type="submit">Submit</button>
       </form>
     </div>
+    <table id="myTable" border="1">
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Tên</th>
+          <th>Tuổi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Dữ liệu sẽ được chèn vào đây -->
+      </tbody>
+    </table>
   </body>
 </html>
